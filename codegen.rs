@@ -15,7 +15,7 @@ fn indent(out: &mut String, depth: usize) {
 
 /// Text that starts with punctuation sticks to the previous piece ("Josh." not "Josh .").
 fn sticks_left(t: &str) -> bool {
-    t.starts_with(|c| matches!(c, '.' | ',' | '!' | '?' | ':'))
+    t.starts_with(|c| matches!(c, '.' | ',' | '!' | '?' | ':'))//check punctuation values 
 }
 
 /// HTML for nodes that flow inside a line of text, plus whether to glue it to the previous piece.

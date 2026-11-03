@@ -1,3 +1,4 @@
+//Ryan Domathoti
 //! Compiler-style error messages (kind, file:line:col, source line, caret).
 
 /// Holds the file name and source text so any phase can print a nice error.

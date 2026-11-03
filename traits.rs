@@ -1,38 +1,39 @@
-//! The three traits handed out in the COSC 455 Project 1 description.
-//! They are kept exactly as given so the instructor's tests can call them.
+//Ryan Domathoti
+// The three traits handed out in the COSC 455 Project 1 description.
+// They are kept exactly as given so the instructor's tests can call them.
 
-/// Trait for a simple lolcompiler front-end.
-/// Errors should cause immediate exit inside the implementation.
+// Trait for a simple lolcompiler front-end.
+// Errors should cause immediate exit inside the implementation.
 pub trait Compiler {
-    /// Begin the compilation process (entry point).
+    // Begin the compilation process (entry point).
     fn compile(&mut self, source: &str);
-    /// Get the next token from the lexical analyzer.
+    // Get the next token from the lexical analyzer.
     fn next_token(&mut self) -> String;
-    /// Run the syntax analyzer starting from <lolcode>.
+    // Run the syntax analyzer starting from <lolcode>.
     fn parse(&mut self);
-    /// Get the current token being processed.
+    // Get the current token being processed.
     fn current_token(&self) -> String;
-    /// Set the current token (typically used internally).
+    // Set the current token (typically used internally).
     fn set_current_token(&mut self, tok: String);
 }
 
-/// Trait for a simple lexical analyzer.
-/// Implements a character-by-character analysis
-/// from a state machine design.
+// Trait for a simple lexical analyzer.
+// Implements a character-by-character analysis
+// from a state machine design.
 pub trait LexicalAnalyzer {
-    /// Return the next character from the input.
-    /// If input is exhausted, should terminate the program.
+    // Return the next character from the input.
+    // If input is exhausted, should terminate the program.
     fn get_char(&mut self) -> char;
-    /// Add a character to the current potential token.
+    // Add a character to the current potential token.
     fn add_char(&mut self, c: char);
-    /// Lookup a potential token to determine if it is valid.
-    /// Returns true if a valid token/lexeme, false otherwise.
+    // Lookup a potential token to determine if it is valid.
+    // Returns true if a valid token/lexeme, false otherwise.
     fn lookup(&self, s: &str) -> bool;
 }
 
-/// OPTION 2 - Trait for a recursive descent Syntax Analyzer
-/// over Vec<String>. Each function parses a nonterminal in
-/// the grammar. On error: return Err(message), on success: Ok(()).
+// Trait for a recursive descent Syntax Analyzer
+// over Vec<String>. Each function parses a nonterminal in
+// the grammar. On error: return Err(message), on success: Ok(()).
 pub trait SyntaxAnalyzer {
     fn parse_lolcode(&mut self) -> Result<(), String>;
     fn parse_head(&mut self) -> Result<(), String>;

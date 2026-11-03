@@ -1,9 +1,13 @@
-//! Ties the phases together: lex -> parse -> resolve scopes -> generate HTML.
+//Ryan Domathoti
+// Ties the phases together: lex -> parse -> resolve scopes -> generate HTML.
 
 use crate::codegen;
 use crate::diagnostics::Reporter;
+
+
 use crate::lexer::Lexer;
 use crate::parser::Parser;
+
 use crate::semantics;
 use crate::traits::{Compiler, SyntaxAnalyzer};
 

@@ -1,4 +1,6 @@
-//! lolcompiler: translates a LOLCODE Markdown (.lol) file into HTML.
+//Ryan Domathoti
+
+//! lolcompiler: translates a LOLCODE Markdown file into HTML
 //! Usage: lolcompiler <input.lol>
 
 mod ast;
@@ -35,6 +37,7 @@ fn open_in_browser(file: &Path) {
     } else {
         env::current_dir().map(|d| d.join(file)).unwrap_or_else(|_| file.to_path_buf())
     };
+    //check system OS
     let result = if cfg!(target_os = "windows") {
         Command::new("cmd").arg("/C").arg("start").arg("").arg(&abs).status()
     } else if cfg!(target_os = "macos") {
@@ -46,7 +49,7 @@ fn open_in_browser(file: &Path) {
         eprintln!("warning: could not open a browser; open {} yourself", abs.display());
     }
 }
-
+//main class checks input path in terminal
 fn main() {
     let args: Vec<String> = env::args().collect();
     if args.len() != 2 {
@@ -68,7 +71,7 @@ fn main() {
             exit(1);
         }
     };
-
+//create compiler object
     let mut compiler = LolCompiler::new(&args[1]);
     compiler.compile(&source); // any error exits here, before a file is written
 

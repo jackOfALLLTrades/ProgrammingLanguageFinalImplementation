@@ -1,7 +1,8 @@
-//! Recursive-descent syntax analyzer (Task 2). One method per grammar rule,
-//! one token of lookahead (`current`). The AST is built with a stack of frames:
-//! each block pushes a frame, its children land in it, and on `pop` they are
-//! wrapped into a single node that goes into the enclosing frame.
+//Ryan Domathoti
+// Recursive-descent syntax analyzer (Task 2). One method per grammar rule,
+// one token of lookahead (`current`). The AST is built with a stack of frames:
+// each block pushes a frame, its children land in it, and on `pop` they are
+// wrapped into a single node that goes into the enclosing frame.
 
 use crate::ast::Node;
 use crate::diagnostics::Reporter;

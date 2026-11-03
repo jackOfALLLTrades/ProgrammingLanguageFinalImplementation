@@ -1,3 +1,4 @@
+//Ryan DDomathoti
 //! Character-by-character lexical analyzer (Task 1).
 
 use crate::diagnostics::Reporter;

@@ -1,8 +1,9 @@
-//! Static-scope variable resolution (Task 3). Walks the tree once, keeping a
-//! stack of scopes (one per block). A definition is visible from the point it
-//! appears to the end of its block; inner blocks may shadow outer ones.
-//! Every use is replaced by the variable's value, so code generation never
-//! sees a VarUse or VarDef.
+//Ryan Domathoti
+// Static-scope variable resolution (Task 3). Walks the tree once, keeping a
+// stack of scopes (one per block). A definition is visible from the point it
+// appears to the end of its block; inner blocks may shadow outer ones.
+// Every use is replaced by the variable's value, so code generation never
+// sees a VarUse or VarDef.
 
 use std::collections::HashMap;
 
